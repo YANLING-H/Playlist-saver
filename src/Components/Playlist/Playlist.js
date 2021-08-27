@@ -3,7 +3,7 @@ import TrackList from '../TrackList/TrackList';
 import './Playlist.css';
 
 const defaultValue = 'New Playlist';
-class Playlist extends React.Components {
+class Playlist extends React.Component {
     constructor(props){
         super(props);
 
@@ -18,11 +18,11 @@ class Playlist extends React.Components {
     render(){
         return (
             <div className="Playlist">
-                <input value={defaultValue} onChange={handleNameChange}/>
+                <input value={defaultValue} onChange={this.handleNameChange}/>
                 <TrackList tracks={this.props.playlistTracks} 
                            onRemove={this.props.onRemove}
                            isRemoval={true}/>
-                <button className="Playlist-save">SAVE TO SPOTIFY</button>
+                <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
             </div>
         )
     }
