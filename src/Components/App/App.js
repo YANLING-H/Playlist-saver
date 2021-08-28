@@ -3,6 +3,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import PlayList from '../Playlist/Playlist';
 import React from 'react';
+import Spotify from '../../util/Spotify';
 
 
 class App extends React.Component {
@@ -38,7 +39,7 @@ class App extends React.Component {
 
   addTrack(track){
     for (let i = 0; i < this.state.playlistTracks.length; i++){
-      if (track.id == this.state.playlistTracks[i].id){
+      if (track.id === this.state.playlistTracks[i].id){
         return;
       }
     }
@@ -47,8 +48,9 @@ class App extends React.Component {
   }
   
   removeTrack(track){
-    this.setState({playlistTracks : this.state.playlistTracks.filter(myTrack => myTrack.id != track.id)});
+    this.setState({playlistTracks : this.state.playlistTracks.filter(myTrack => myTrack.id !== track.id)});
   }
+  
 
   render() {
     return (
