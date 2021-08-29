@@ -11,8 +11,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       searchResults: [
-      {name: 'eight', artist:'iu', album:'eight',id:'01'}
-    ],
+        {name: 'bloom', artist:'iu', album:'bloom',id:'02'}
+      ], 
       playlistName: 'My favoriate songs',
       playlistTracks: [
         {name: 'bloom', artist:'iu', album:'bloom',id:'02'}
@@ -26,7 +26,9 @@ class App extends React.Component {
   }
 
   search(term){
-    console.log(term);
+    Spotify.search(term).then(searchResults => {
+      this.state({searchResults: searchResults})
+    })
   }
 
   savePlaylist(){
